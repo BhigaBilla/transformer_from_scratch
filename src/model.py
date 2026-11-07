@@ -176,7 +176,9 @@ class GPT(nn.Module):
             x = x + self.pos_emb(torch.arange(T, device=idx.device))
         elif self.cfg.pos == "sinusoidal":
             # as in the 2017 paper, scale embeddings by sqrt(d) so they are not swamped by the +-1 table
-            x = x * math.sqrt(self.cfg.d_model) + self.pos_table[:T]
+            if self.cfg.emb_scale:
+                x = x * math.sqrt(self.cfg.d_model)
+            x = x + self.pos_table[:T]
         x = self.drop(x)
         for block in self.blocks:
             x = block(x)

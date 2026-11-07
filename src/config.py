@@ -14,6 +14,7 @@ class ModelConfig:
     norm: str = "pre"          # "pre" (GPT-2 style) | "post" (original 2017 paper)
     tie_weights: bool = True   # share token embedding and output projection
     use_ffn: bool = True       # False = attention-only blocks
+    emb_scale: bool = True     # sinusoidal only: multiply token embeddings by sqrt(d_model) as in the 2017 paper
 
 
 @dataclass

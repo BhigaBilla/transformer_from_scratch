@@ -35,6 +35,10 @@ GROUPS = {
         "shape_2x448": ({"n_layer": 2, "d_model": 448, "d_ff": 1792}, {}),
         "shape_12x176": ({"n_layer": 12, "d_model": 176, "d_ff": 704}, {}),
     },
+    # follow-up: is sinusoidal == no-position caused by the sqrt(d) embedding scaling?
+    "poscheck": {
+        "pos_sinusoidal_noscale": ({"pos": "sinusoidal", "emb_scale": False}, {}),
+    },
     "extra": {
         "no_tie": ({"tie_weights": False}, {}),
         "no_ffn": ({"use_ffn": False}, {}),
