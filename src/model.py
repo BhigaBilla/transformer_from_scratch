@@ -148,6 +148,8 @@ class GPT(nn.Module):
         self.ln_f = nn.LayerNorm(cfg.d_model) if cfg.norm == "pre" else nn.Identity()
         self.head = nn.Linear(cfg.d_model, cfg.vocab_size, bias=False)
         self.apply(self._init_weights)
+        if cfg.emb_std != 0.02:   # only re-draw when changed, so earlier runs stay reproducible
+            nn.init.normal_(self.tok_emb.weight, mean=0.0, std=cfg.emb_std)
         # GPT-2 init: shrink the projections that write into the residual stream
         for name, p in self.named_parameters():
             if name.endswith("proj.weight"):

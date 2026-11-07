@@ -38,6 +38,8 @@ GROUPS = {
     # follow-up: is sinusoidal == no-position caused by the sqrt(d) embedding scaling?
     "poscheck": {
         "pos_sinusoidal_noscale": ({"pos": "sinusoidal", "emb_scale": False}, {}),
+        # init std 1/sqrt(d): after the sqrt(d) scaling, token embeddings and the sin/cos table have similar size
+        "pos_sinusoidal_embstd": ({"pos": "sinusoidal", "emb_std": 256 ** -0.5}, {}),
     },
     "extra": {
         "no_tie": ({"tie_weights": False}, {}),

@@ -15,6 +15,7 @@ class ModelConfig:
     tie_weights: bool = True   # share token embedding and output projection
     use_ffn: bool = True       # False = attention-only blocks
     emb_scale: bool = True     # sinusoidal only: multiply token embeddings by sqrt(d_model) as in the 2017 paper
+    emb_std: float = 0.02      # init std of the token embedding (tied with the output layer)
 
 
 @dataclass
