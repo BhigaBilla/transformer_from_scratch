@@ -58,7 +58,7 @@ library on the training stories only (not the point of the project, so not hand-
 ## Results
 
 Validation loss (cross-entropy in nats/token) on the full official TinyStories validation
-split, ~9.8M tokens never seen in training. Mean of 2 seeds; ± is half the gap between
+split, ~4.9M tokens never seen in training. Mean of 2 seeds; ± is half the gap between
 the two seeds. The baseline's own two seeds differ by 0.011, so **differences under
 about 0.01-0.015 are treated as noise.** Full table: [`results.md`](results.md).
 
